@@ -14,15 +14,15 @@ const Form = () => {
       tg.MainButton.setParams({
          text: 'Send data'
       })
-   },[tg]);
+   },[]);
 
    useEffect(() => {
       if(!country || !street) {
-        // tg.MainButton.hide();
+         tg.MainButton.hide();
       } else {
          tg.MainButton.show();
       }
-   },[country, street, tg]);
+   },[country, street]);
 
    const onChangeCountry = (e) => {
       setCountry(e.target.value);
