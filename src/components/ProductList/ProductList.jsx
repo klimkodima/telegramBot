@@ -58,7 +58,7 @@ const ProductList = () => {
          newItems = [...addedItems, product];
       }
 
-      setAddedItems(newItems)
+      setAddedItems(newItems);
 
       if (newItems.length === 0) {
          tg.MainButton.hide();
@@ -71,15 +71,20 @@ const ProductList = () => {
    }
 
    return (
-      <div className={'list'}>
-         {products.map(item => (
-            <ProductItem
-               product={item}
-               onAdd={onAdd}
-               className={'item'}
-            />
-         ))}
-      </div>
+      <>
+         <div className={'list'}>
+            {products.map(item => (
+               <ProductItem key={item.id}
+                  product={item}
+                  addedItem={!!addedItems.find(addedItem => addedItem.id === item.id)}
+                  onAdd={onAdd}
+                  className={'item'}
+               />
+            ))}
+         </div>
+         <span>{getTotalPrice(addedItems)}</span>
+      </>
+
    );
 };
 
