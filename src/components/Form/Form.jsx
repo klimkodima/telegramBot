@@ -4,9 +4,9 @@ import './Form.css';
 
 const Form = () => {
 
-   const { country, setCountry } = useState('');
-   const { street, setStreet } = useState('');
-   const { subject, setSubject } = useState('physical');
+   const [ country, setCountry ] = useState('');
+   const [ street, setStreet ] = useState('');
+   const [ subject, setSubject ] = useState('physical');
 
    const { tg } = useTelegram();
 
@@ -41,6 +41,7 @@ const Form = () => {
    }, [country, street, tg]);
 
    const onChangeCountry = (e) => {
+      console.log(e.target.value)
       setCountry(e.target.value);
    }
 
