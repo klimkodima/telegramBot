@@ -56,7 +56,7 @@ const Form = () => {
    return (
       <form className='form'>
          <h2>Enter your data</h2>
-         <h2>{user.username}</h2>
+         <h2>{user?.username}</h2>
          <input type="text" name="country" value={country}
             onChange={onChangeCountry} className="input" placeholder='Country' />
          <input type="text" name="street" value={street}
