@@ -1,5 +1,3 @@
-import './ProductList.css';
-
 import React, { useState, useCallback, useEffect } from 'react';
 import './ProductList.css';
 import ProductItem from "../ProductItem/ProductItem";
@@ -24,7 +22,7 @@ const getTotalPrice = (items = []) => {
 
 const ProductList = () => {
    const [addedItems, setAddedItems] = useState([]);
-   const { tg, queryId } = useTelegram();
+   const { tg, queryId, user } = useTelegram();
 
    const onSendData = useCallback(() => {
       const data = {
@@ -73,6 +71,7 @@ const ProductList = () => {
    return (
       <>
          <div className={'list'}>
+         <h2>{user}</h2>
             {products.map(item => (
                <ProductItem key={item.id}
                   product={item}
